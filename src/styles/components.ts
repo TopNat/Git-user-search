@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface PageActiv {
+  readonly $isActiv: boolean;
+}
+
 export const ContainerHeader = styled.div`
   background-color: #a6a5a5;
   display: flex;
@@ -99,19 +103,11 @@ export const Text = styled.p`
   padding: 10px;
 `;
 
-export const PageText = styled.span`
-  color: #a6a5a5;
+export const PageText = styled.span<PageActiv>`
+  color: ${(props) => (props.$isActiv ? "#000" : "#a6a5a5")};
+  font-weight: ${(props) => (props.$isActiv ? "bold" : "normal")};
   padding: 10px;
   &:hover {
-    color: #000;
-  }
-`;
-
-export const PageTextBold = styled.span`
-  color: #a6a5a5;
-  padding: 10px;
-  &:hover {
-    font-weight: bold;
     color: #000;
   }
 `;

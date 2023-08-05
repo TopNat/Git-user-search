@@ -1,5 +1,5 @@
 import { IRepos } from "../models/models";
-import { RepoSt, RepoLink, Text } from "../styles/components";
+import { RepoSt, RepoLink } from "../styles/components";
 
 export function Repo({ repo }: { repo: IRepos }) {
   return (

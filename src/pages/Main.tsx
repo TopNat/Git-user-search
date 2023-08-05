@@ -22,6 +22,7 @@ const COUNT_USERS_PAGE = 20; //количество пользователей �
 
 export function Main() {
   const [valueSearch, setValueSearch] = useState("all");
+  // const [isActiv, setIsActiv] = useState();
   const input = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const [valueRadio, setValueRadio] = useState("desc");
@@ -117,10 +118,14 @@ export function Main() {
       ) : (
         <div>
           <ListPage>
-            {listPages.map((page: number) => (
-              <PageText key={page} onClick={() => clickPage(page)}>
+            {listPages.map((pageItem: number) => (
+              <PageText
+                $isActiv={pageItem === page ? true : false}
+                key={pageItem}
+                onClick={() => clickPage(pageItem)}
+              >
                 {" "}
-                {page}{" "}
+                {pageItem}{" "}
               </PageText>
             ))}
           </ListPage>
